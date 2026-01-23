@@ -1,0 +1,842 @@
+
+/*  ANCHOR - Nav */
+/* nav muss außerhalb von header, wenn sticky! header dann per top:0 und margin-top:-minus-wert, um den nachfolgenden content nachzuschieben */
+ nav {
+   /* border: 1px solid burlywood; */
+  width: 100%;
+  height: 140px;
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  background-color: var(--transp);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+  align-items: center; 
+    & .logo {
+    left: 5vw;
+    position: absolute;
+    z-index: 99;
+    width: 120px;
+    min-width: 60px;
+    height: auto;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+    }
+}
+/* Linie unten bei hover */
+nav::after {
+  content: "";
+  position: absolute;
+  background-color: var(--secondary);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  transition: width 0.5s ease;
+}
+nav:hover::after {
+  width: 100%;
+}
+
+.navi-container {
+    /* border: 1px solid red; */
+  display: flex;
+  position: absolute;
+  z-index: 20;
+  left: 5vw;
+  width: calc(100% - 10vw);
+  height: 50px;
+  & div:first-of-type {
+      /* border: 2px solid orange; */
+      width: 100%;
+      margin-left: 100px;
+    display: flex;
+    justify-content: center;
+  background-color: var(--primary-transp);    
+    & ul {
+      width: 100%;
+      /* width: calc(100% - 100px); */
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      & li:first-child {
+        padding-left: 1rem;
+      }
+      & li {
+        padding: 4px;  
+        position: relative;
+      }
+      & li::after{
+        content: '';
+        position: absolute;
+        width: 0%;
+        /* height: 0%; */
+        border: 0.5px solid transparent;    
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        transition: all 0.5s ease; 
+      }  
+      & li:hover::after {
+        width: 100%;
+        /* height: 100%; */
+        border-color: var(--secondary);
+      }  
+      a {
+        font-size: 1.1rem;
+        color: var(--body-bg);
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+      a:hover{
+        color: var(--secondary);
+        } 
+    }  
+  }
+   
+}
+.burger-btn{
+    display: none;
+    background-color: transparent;
+    border: none;
+    width: auto;
+    height: auto;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+    > i{
+        font-size: 1.6rem;
+        color: var(--neutral-100);
+      }  
+    .close-btn {
+        display: none;
+      }
+    .fa-bars {
+      display: inline-block;
+    }
+      &.active .close-btn {
+      display: inline-block;
+    }
+    &.active .fa-bars {
+      display: none;
+    }
+}
+
+/* Zustand wenn aktiv: Bars verstecken, X zeigen */
+/* .burger-btn.active .close-btn {
+  display: inline-block;
+}
+
+.burger-btn.active .fa-bars {
+  display: none;
+} */
+
+.burger-btn i:hover{
+  animation: burger-anim 1s forwards;
+}
+    
+@keyframes burger-anim{
+    0%{
+      transform:scale(1);
+    }
+    100%{
+      transform:scale(1.3);
+    }
+}
+
+search {
+  display: flex;
+}
+/* ANCHOR  Navi-Suchfeld */
+nav .navi-container form {
+    display: flex;
+    /* width: min(15vw, 500px); */
+    flex-basis: 20;
+      flex-grow: 0;
+    flex-shrink: 1;    
+}
+input[type="search"] {
+  width: 100%;
+  min-width: 150px;
+  padding: 10px;
+	border: 1px solid var(--neutral-400);
+  border-style: solid none inset none;    
+}
+
+input, button {
+	transition: 
+    outline-offset 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+/* Fokuszustand weich anpassen */
+input:focus, button:not[burger-btn]:focus {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 1px;
+	box-shadow: 0 0 6px rgba(0, 119, 204, 0.6); /* weiche Aura */
+}
+button:not[burger-btn]:active {
+  outline: 1px solid var(--accent-7);
+  outline-offset: 2px;
+	box-shadow: 0 0 6px rgba(0, 119, 204, 0.6); /* weiche Aura */
+}
+
+.btn-search {
+  color: var(--neutral-100);
+  background-color: var(--primary-light);
+  /* border: none; */
+  padding: 5px 10px;
+	border: 1px solid var(--neutral-400);
+  border-style: solid solid solid none;  
+}
+/* wenn Lupe innerhalb des Suchfeldes gewünscht */
+/* label::before {
+    content: "";
+    display: block;
+    background-image: url("../img/logo_btn_icon/search-icon.svg");
+    background-size: cover;
+    background-position: center right;
+    width: 25px;
+    height: 25px; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-55%);
+    right: 10px;
+    z-index: 10;
+} */
+
+
+/*  ANCHOR - Header */
+
+/* ACHTUNG FÜR nav sticky: Damit position: sticky; funktioniert, darf keines der Elternelemente (in der Hierarchie nach oben bis zum body) die Eigenschaft overflow: hidden, overflow: auto oder overflow: scroll besitzen!! */
+
+header{
+    position: relative;
+    top: 0;
+    /* top: -140px; */
+    z-index: 0;
+    width: 100%;
+    /* height: calc(100vh - 60px); */
+    height: 100vh;
+    /* margin-bottom: -140px; */
+    padding-top: 40px;
+    background-image: url("../img/praxis-team/nahaufnahme-eines-tierarztes-der-sich-um-den-hund-kummert 2.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--neutral-200);
+  & .layer{
+    width: 50vw;
+    height: auto;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--neutral-700);
+    background-color: var(--transp);
+    backdrop-filter: blur(3px);
+    box-shadow: 0px 0px 20px rgb(0 0 0 / 0.3);
+    border: var(--neutral-300) 2px solid;
+    animation: headlineup 1s ease-in-out forwards;
+    text-align: center;
+    & h2 {
+      margin: 1rem;
+    }
+    & h3 {
+      margin: 2rem;
+      line-height: 1.8rem;
+    }
+    & p {
+      font-size: 1.2rem;
+      margin: 0.5rem;
+    }
+  }
+}  
+/* /* CSS erlaubt immer nur ein transform pro Selektor – das zweite transform überschreibt das erste, also muss man das erste wiederholen! */ 
+
+@keyframes headlineup {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  } 
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* ANCHOR Buttons */
+.div-buttons-header-bottom {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 80px;
+  width: 100%;
+}
+
+.scroll-down {
+  display: flex; justify-content: center;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  cursor: pointer;
+}
+.scroll-down span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid var(--neutral-600);
+  border-right: 2px solid var(--neutral-600);
+  transform: rotate(45deg);
+  animation: bounce 2s 0s 3;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) rotate(45deg);
+  }
+  40% {
+    transform: translateY(10px) rotate(45deg);
+  }
+  60% {
+    transform: translateY(5px) rotate(45deg);
+  }
+}
+
+#anker-content {
+  scroll-margin-top: 141px;
+}
+
+
+/* ANCHOR Content */
+
+section {
+  height: auto;
+  /* border: 1px solid blueviolet; */
+  padding-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  padding-left: 5vw;
+  padding-right: 5vw;
+  & h3 {
+    /* Jede h1-6 generiert einen default-abstand,
+    aber bei background-color des umgebenden elements wird dieser default Nicht gefüllt,
+    bis man dem element eine border oder padding-top gibt!! */
+    /* default: 1em */
+    margin-top: 0;
+    color: var(--primary);
+    text-decoration: underline var(--accent-3) solid 1.5px; text-underline-offset: 10px;
+    margin-bottom: 41.5px;
+  }
+  & .content {
+      /* border: 1px solid blueviolet; */
+      width: 100%;
+      display: flex;
+      height: auto;
+      margin: auto;
+    }
+}
+  
+.praxis-info {
+  .divimg{
+        /* border: 1px solid blueviolet; */
+      flex: 1;
+      & img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+    } 
+  & figure {
+        /* border: 1px solid blueviolet; */
+    /* max-width: 50%; */ /* anderer Platzbedarf -> nicht gut! */
+      flex: 1;
+      height: auto;
+      border-radius: 12px;
+      overflow: hidden;  
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Ein leichter Schatten hebt die Card modern ab */
+  }
+  & .divtext {
+      /* border: 1px solid blueviolet; */
+    flex: 1;
+    height: auto;
+    /* width: 50%; */
+    align-content: center;
+    justify-content: center; /* position button mittig bei display:flex */
+    /* Achtung: kein padding direkt in die 50%-box, 
+    da es zu den 505 hinzugerechnet wird und dann ein 50-50%-Verhältnis zweier divs nicht mehr stimmt. 
+    Statt dessen inner-div für Text oder Text selbst mit padding-l-r !! */
+    & > .inner{
+        /* border: 1px solid blueviolet; */
+      /* font-size: calc(14px + 0.2vw); */
+      font-size: 1rem;  
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* position button mittig bei display:flex */
+      align-items: center;
+      padding-left: var(--spacing-md);
+      padding-right: var(--spacing-sm);
+        /* & p {
+      padding-left: var(--spacing-sm);
+      padding-right: var(--spacing-sm);
+      } */
+    }  
+  }
+}
+
+.praxis-team {
+  background-color: var(--neutral-100);
+  & .team {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: var(--spacing-md);
+  } 
+  & figure {
+      display: flex;
+      flex-direction: column; /* Bild und Text untereinander, damit keine Überlappung */    
+      /* flex-basis: 40%; */
+      flex: 30%;
+      max-width: 280px;
+      /* gleiche figure-Größe durch feste height im img! */
+        background-color: var(--primary-light);
+      /* Damit die Ecken der Card unten auch rund sind, falls gewünscht */
+      border-radius: 12px;
+      overflow: hidden;  
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Ein leichter Schatten hebt die Card modern ab */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;  
+    &:hover {
+    /* 2. Die eigentliche Animation */
+    transform: translateY(-10px); /* 10px nach oben */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Schatten wird weicher beim Abheben */
+  }
+    & figcaption {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--neutral-900);
+      padding: 10px;
+      text-align: center;
+    }
+    & img {
+      display: block;
+      width: 100%;
+      /* height: 100%; */ /* KEIN height:100%, da sonst bei figcapture-Umbruch untersch. Bildhöhe! */
+      /* max-height: 250px; */
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+    } 
+  }
+}  
+
+
+.praxis-team__ {
+  background-color: var(--neutral-100);
+  & .team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
+  } 
+  & figure {
+    /* flex: 1 1 250px; 
+    max-width: 33%;  */
+    /* Verhindert, dass ein einzelnes Bild in einer neuen Reihe riesig wird */
+  
+    flex: 0 0 30%; 
+    max-width: 40%;
+  /* Exakt 30% Breite, kein Wachsen, kein Schrumpfen */
+    display: flex;
+    flex-direction: column; /* Bild und Text untereinander */
+    margin: 0; /* Browser-Standardabstände entfernen */
+    background-color: var(--primary-light); /* Hintergrund für die ganze Karte */ 
+    & img {
+      display: block;
+      width: 100%;
+      height: 250px; /* Feste Höhe für ein einheitliches Raster */
+      object-fit: cover;
+    }
+
+    & figcaption {
+      padding: 10px; /* Etwas Platz für den Text */
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--neutral-900);
+      text-align: center;
+      /* Kein height: 100% nötig, es nimmt sich den Platz, den es braucht */
+    }
+  }
+}
+
+/* Hallo! Das Problem, das du beschreibst, ist ein klassischer CSS-Stolperstein. 
+Dass die figcaption verdeckt wird, liegt fast immer an der Art und Weise, 
+wie die Bilder (img) innerhalb der Flex-Elemente dimensioniert sind.
+
+Warum passiert das? Wenn du dem Bild height: 100% gibst, versucht es, die gesamte Höhe des Elternelements (figure) einzunehmen. Da die figure durch Flexbox ihre Höhe oft nach dem Inhalt richtet, entsteht ein Teufelskreis: Das Bild dehnt die figure aus, und die figcaption wird entweder nach unten aus dem sichtbaren Bereich geschoben oder vom Bild überlagert, wenn die figure eine feste oder begrenzte Höhe hat.
+
+Meistens "rutscht" das Bild über die Beschriftung, weil height: 100% das Bild zwingt, 
+den Platz zu beanspruchen, den eigentlich die figcaption bräuchte.
+
+Was wurde geändert?
+
+    display: flex + flex-direction: column für figure: Das sorgt dafür, dass die figcaption immer exakt unter dem Bild steht, egal wie hoch das Bild ist.
+
+    height: 250px (oder ein anderer Wert) für img: Damit dein Team-Raster ordentlich aussieht, sollten alle Bilder die gleiche Höhe haben. object-fit: cover sorgt dafür, dass die Köpfe nicht verzerrt werden.
+
+    gap im Team-Container: Anstatt nur 30% zu nutzen, hilft ein gap, damit die Bilder nicht aneinanderkleben.
+
+    flex: 0 0 30%: Das ist stabiler als nur 30%, da es verhindert, dass die Boxen bei viel Text unkontrolliert wachsen.
+
+Ein kleiner Tipp am Rande: Falls du möchtest, dass alle Team-Karten in einer Reihe exakt gleich hoch sind (auch wenn ein Name mal zwei Zeilen braucht), ist die Flex-Lösung für die figure ideal, da sich die figcaption dann automatisch anpasst. */
+
+section.praxis-leistungen {
+  & .content {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  p {
+    display: flex;
+    flex: 1 1 25%;
+    /* max-width: 33%; */
+    gap: var(--spacing-xsm);
+    padding-block: 10px;
+    padding-inline: 20px;
+    line-height: 5rem;
+    font-size: 1.4rem;
+    border: 1px solid var(--secondary);
+    border-radius: var(--border-radius-md);
+  }
+  i {
+     /* Achtung: favicon sitzt nicht mittig im eigenen container! */
+     /* fav sitzt nicht mittig auf schrift-linie, anpassen mit margin-top */
+          /* border: 1px solid red; */
+    display: inline-flex;
+    align-self: center;
+    justify-content: center;
+    padding: 1rem 2rem 1rem 2rem;
+    margin-top: -2px; /* abhängig von line-heiht p */
+    font-size: 2rem;
+    background-color: bisque;
+    border-radius: 50%;
+  }
+
+}
+
+.praxis-kontakt {
+  background-color: var(--neutral-100);
+  & .div-table {
+    /* border: 2px solid green; */
+    width: 100%;
+    display: table; 
+    margin: auto;
+    table-layout: fixed;
+    & > .div-cell {
+      display: table-cell;
+      & > h4 {
+        background-color: var(--primary-light); 
+        padding: 10px;
+      }
+      &:first-child {
+        padding-right: var(--spacing-sm);
+      }   
+      &:nth-child(2) {
+        border-left: 2px solid var(--primary);
+        border-right: 2px solid var(--primary);
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+        & div.cell-cell-1 > div > p:nth-child(n+1) {
+          font-weight: bold;
+        }
+      }
+      &:last-child {
+        padding-left: var(--spacing-sm);
+          & h4 {
+          color: var(--red);
+          background-color: var(--primary-light); 
+        }
+      }
+      & .cell-cell-1{
+        /* display: flex; */
+        padding-left: var(--spacing-xsm);
+        padding-right: var(--spacing-xsm);
+      }  
+    }
+  }
+}
+
+
+/*  ANCHOR - FOOTER */
+
+ footer{
+  width: 100%;
+  height: auto;
+  /* position: fixed; */
+  /* bottom: 0; */
+  padding-block: 1rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--neutral-400);
+}   
+
+/* ANCHOR BUTTON SCROLL TO TOP */
+
+.btn-scroll-top{
+  /* position: fixed; */
+  display: block;
+  width: 40px;
+  height: 40px;
+  /* bottom: 30px;
+  right: 50px; */
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  /* border-style: groove; */
+  border-style: dotted groove dotted groove;
+  box-shadow: 5px 5px 12px 0 rgba(0,0,0,0.25);
+  transition: 1s;
+}
+
+.btn-scroll-top:hover{
+  transform: rotateY(360deg);
+}
+
+
+
+/* ANCHOR Responsive */
+
+@media screen and (max-width:1225px) {
+  /* form label::before{
+    display: none; 
+  } */
+
+  .praxis-kontakt {
+    & .div-table {
+      & > .div-cell {
+        display: table-row;
+        & .cell-cell-1 {
+          display: flex;
+          justify-content: space-between;
+          gap: var(--spacing-sm);
+          padding-left: var(--spacing-md);
+          padding-right: var(--spacing-md);
+        }
+      }
+    }
+  } 
+  & .box-50-50 {
+    flex-direction: column;
+      & .divtext > .inner {
+        align-items: flex-start;
+        & a.btn {
+          margin: auto;
+        }
+      }
+    } 
+
+  .praxis-leistungen {
+      & .content > p {
+        flex: 1 1 250px;
+        max-width: 50%;
+        font-size: 1.1rem;
+        & i {
+          padding: 15px 25px 15px 25px;
+          margin-top: -2px;
+          font-size: 20px;
+        }
+      } 
+    }     
+}
+
+@media screen and (max-width:860px) {
+  .navi-container {
+    div:first-of-type {
+      align-items: center;
+      #dropdown-menu {
+        display: none;
+      }
+      .burger-btn {
+        display: block;
+        margin-left: auto;
+        margin-right: 10px;
+      }
+      #dropdown-menu.expand{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 80vh;
+        top: 80px;
+        right: 0px;
+        z-index: 20;
+        padding: 20px;
+        background-color: var(--primary);
+        text-align: center;
+        line-height: 3rem;
+        & a {
+            color: var(--secondary);
+            font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+          }         
+      }
+      ul.expand a:hover {
+        color: var(--accent-7);
+      } 
+    }     
+  }
+  header .layer {
+    width: calc(100% - 10vw);
+  }
+  .praxis-info > .content .divtext{
+    padding-bottom: var(--spacing-xsm);
+  }
+
+  .praxis-leistungen {
+    & .content > p {
+      flex: 1 1 33%;
+      font-size: 1rem;
+      gap: 0.5rem;
+      & i {
+        padding: 15px 25px 15px 25px;
+        margin-top: -2px;
+        font-size: 20px;
+      }
+    } 
+  }  
+}
+
+@media (max-width: 565px) {
+    .praxis-leistungen {
+    & .content {
+      display: block;
+      /* flex-direction: column;
+      align-content: center; */
+    }
+    & .content > p {
+      margin: var(--spacing-xsm) auto;
+      flex: 1;
+      max-width: 80%;
+    } 
+  }  
+}
+  
+@media screen and (max-width:480px) {
+  nav {
+    height: 100px;
+    .logo {
+      width: 90px;
+      height: auto;
+    }
+    .navi-container{
+      height: 45px;
+      & div:first-of-type {
+        margin-left: 20px;
+      }
+    }
+  }
+  nav .navi-container form {
+    display: none;
+  }
+  header .div-buttons-header-bottom {
+    /* justify-content: space-between; */
+    gap: 1rem;
+    & .btn {
+      flex-basis: 40%;
+    }
+    & a:last-child {
+      /* flex-basis: 100%; */
+      /* Zentriert den Button selbst, falls er keine 100% Breite hat */
+      margin: 0 auto;
+    }  
+  }
+}
+
+@media screen and (max-width:465px) {
+  header .div-buttons-header-bottom {
+    justify-content: center;
+    bottom: 20px;
+    & .btn {
+      flex-basis: 40%;
+      font-size: 1rem;
+      padding: 0.5rem;
+    } 
+  }
+  .scroll-down {
+    display: none;
+  }
+
+  section {
+    padding-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+  }
+  h4 {
+    margin-top: 0;
+  }
+
+  .praxis-info > .content .divtext{
+    padding: var(--spacing-xsm);
+  }
+
+  .praxis-team {
+    & div.team {
+      justify-content: center;
+      gap: var(--spacing-xsm);
+      & figure {
+        min-width: 140px;
+        max-width: 50%;
+        & img {
+          max-height: 150px;
+        }
+        figcaption {
+          font-size: 0.9rem;
+          font-weight: 500;
+          text-align: center;
+        }
+      }
+    }  
+  }
+
+  .praxis-kontakt > .div-table > .div-cell .cell-cell-1 {
+          font-size: 1rem;
+          display: block;
+          justify-content: center;
+          padding-left: var(--spacing-xsm);
+          padding-right: var(--spacing-xsm);
+        }
+
+  footer {
+    font-size: 1rem;
+  }
+}
+
+/* Ein kleiner "Pro-Tipp" zur Barrierefreiheit
+
+Manche Menschen reagieren empfindlich auf Animationen (Motion Sickness). 
+In modernen CSS-Projekten fügt man oft diesen kleinen Block am Ende hinzu, um Animationen für diese Nutzer abzuschalten: */
+@media (prefers-reduced-motion: reduce) {
+  & figure {
+    transition: none;
+  }
+}

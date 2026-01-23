@@ -1,0 +1,225 @@
+:root {
+  scroll-behavior: smooth;
+  font-family: 'Figtree', 'PT Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  font-weight: 400;
+  /* font-size: calc(1rem + 1vw); */
+  /* font-size: clamp(1rem, 2.5vw, 2rem); */
+  font-style: normal;
+  
+  --body-color: #121212;
+  --body-bg: #fff;
+  
+  --headings-font-family: 'Figtree';
+  --headings-color: var(--primary-dark);
+  
+  --primary: #1B818C;  /* türkis */
+  --primary-transp: rgba(27, 129, 140, 0.8);  /* türkis */
+  --primary-light: #87c1c1;  
+  --primary-dark: #036776; 
+  /* --primary-dark: #0e4c51;  */
+  --secondary: #FAD3B9;  /* lachsfarben */
+  --accent-1: #664463;  /* violett */
+  --accent-2: #f7eeb3;   /* hell gelb */
+  --accent-3: #bb6c9e;  /* violett */
+  --accent-4: #9fa8f5;   /* grün */
+  --accent-5: #9fd9ec;   /* hell blau */
+  --accent-6: #efd006;   /* gelb */
+  --accent-7: #8abf8d;   /* grün */
+  
+  --neutral-100:#eaecee;
+  --neutral-200:#d8dbdf;
+  --neutral-300:#bdc0c6;
+  --neutral-400:#a2a7ae; 
+  --neutral-500:#8d9299; 
+  --neutral-600:#6a7077; 
+  --neutral-700:#54565a; 
+  --neutral-800:#404248; 
+  --neutral-900:#28292a;
+  
+  --transp: rgba(255, 255, 255, 0.5);
+
+  --red: rgba(160, 4, 4);;
+    
+  --border-radius-sm: 5px;
+  --border-radius-md: 12px;
+  --border-radius-round: 50%;
+
+  --transition03: all .3s ease-in-out;
+  --transition-cubric: 800ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  
+  --spacing-xsm: 20px;
+  --spacing-sm: 30px;
+  --spacing-md: 40px;
+  --spacing-lg: 80px; /* 5rem */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  /* margin: 0;
+  padding: 0; */
+}
+/* initial ist der Wert, der einem Element schon durch die CSS-Spezifikation zugewiesen wurde. 
+https://www.mediaevent.de/css/reset.html */
+body {
+  all: initial; /*macht margin:0 */
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  height: 100vh;
+  color: var(--body-color);
+  background-color: var(--body-bg);
+}
+
+:where(nav ul){
+  list-style-type: none;
+  padding: unset;
+  /* margin: 0;    */
+}
+
+/* typo */
+
+h1, h2, h3, h4, h5, h6 {
+  /* margin: 0; */
+  font-family: var(--headings-font-family);
+  font-weight: 600;
+  line-height: 1.6rem;
+  color: var(--headings-color);    
+  text-align: center;
+}
+
+h1 {
+  color: var(--primary-dark);    
+  font-size: calc(2.4rem + 1vw);
+  /* font-size: 3.1rem; */
+  font-weight: 700;
+}
+
+h2 {
+  color: var(--accent-1); 
+  font-size: calc(1.9rem + 0.5vw);
+  /* font-size: 2.2rem; */
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+
+/* neue HTML5 Elemente */
+header, main, section, aside, article, footer, figure, figcaption {
+  display: block;
+  padding: 0;
+  margin: auto;
+}
+
+main {
+width: 100%;
+/* height: 60vh;  Achtung: geht nicht! */
+margin: auto;
+/* margin-bottom: 20px; */
+}
+
+section {
+  width: 100%;
+  height: auto;
+  /* padding-left: 100px;
+  padding-right: 100px; */
+  /* max-width: calc(100% - 10vw); */
+}
+
+/* ANCHOR links & buttons */
+
+a[class^="link"] {
+  color: var(--accent-3);
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* a[class^="btn"]{
+  border-radius: var(--border-radius-md);
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  &:hover{
+  color: var(--secondary);
+  }
+} */
+
+a.btn {
+  border: none;
+  border-radius: var(--border-radius-md);
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+    &:hover{
+    color: var(--secondary);
+  }
+}
+
+.btn-lg {
+  padding: 0.75rem 1.4rem; 
+  font-size: 1.1rem; 
+}
+
+.btn-sm {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+a.btn-outline {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background-color: var(--transp);
+  &:hover{
+  color: var(--accent-3);
+  } 
+}
+
+a.btn-primary { 
+  /* border: none; */
+  color: var(--neutral-100);
+  background-color: var(--primary);
+}
+
+.btn-emergency {
+  color: var(--neutral-100);
+  background-color: var(--red);
+    &:hover{
+    color: var(--accent-2);
+    } 
+}
+
+a.btn-secondary {
+  color: var(--primary-dark);
+  background-color: var(--secondary);
+}
+
+a.link-footer {
+  color: var(--primary-dark);
+    &:hover{
+    color: var(--primary);
+    } 
+}
+
+figure {
+  margin: 0;
+  width: max(100%, 50px);
+  height: auto;
+  & img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.card {
+  box-shadow: var(--neutral-900); 
+}
