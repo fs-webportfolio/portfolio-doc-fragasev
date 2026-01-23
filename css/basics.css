@@ -59,8 +59,12 @@
   /* margin: 0;
   padding: 0; */
 }
+<<<<<<< HEAD
 /* initial ist der Wert, der einem Element schon durch die CSS-Spezifikation zugewiesen wurde. 
 https://www.mediaevent.de/css/reset.html */
+=======
+
+>>>>>>> 26f658c (clean up css comments)
 body {
   all: initial; /*macht margin:0 */
   font-size: 1.1rem;
@@ -207,6 +211,7 @@ a.link-footer {
     } 
 }
 
+<<<<<<< HEAD
 figure {
   margin: 0;
   width: max(100%, 50px);
@@ -223,3 +228,5 @@ figure {
 .card {
   box-shadow: var(--neutral-900); 
 }
+=======
+>>>>>>> 26f658c (clean up css comments)

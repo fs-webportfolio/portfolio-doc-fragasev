@@ -1,5 +1,12 @@
 /*  ANCHOR - Nav */
+<<<<<<< HEAD
 /* nav muss außerhalb von header, wenn sticky! header dann per top:0 und margin-top:-minus-wert, um den nachfolgenden content nachzuschieben */
+=======
+/* sticky nav island mit fester Höhe! 
+header top: minus nav-höhe und margin-top:-minus-wert= nav-höhe, um den nachfolgenden content nachzuschieben */
+
+/*  auskommentierte borders nur für Kontrollzwecke */
+>>>>>>> 26f658c (clean up css comments)
  nav {
    /* border: 1px solid burlywood; */
   width: 100%;
@@ -28,8 +35,11 @@
         object-fit: cover;
         object-position: center;
         display: block;
+<<<<<<< HEAD
         /* border-radius: 50%; */
         /* background-color: var(--primary); */
+=======
+>>>>>>> 26f658c (clean up css comments)
       }
     }
 }
@@ -50,7 +60,10 @@ nav:hover::after {
 }
 
 .navi-container {
+<<<<<<< HEAD
     /* border: 1px solid red; */
+=======
+>>>>>>> 26f658c (clean up css comments)
   display: flex;
   position: absolute;
   z-index: 20;
@@ -59,7 +72,10 @@ nav:hover::after {
   height: 50px;
   justify-content: space-between;  
   & div:first-of-type {
+<<<<<<< HEAD
       /* border: 2px solid blue; */
+=======
+>>>>>>> 26f658c (clean up css comments)
       width: 100%;
       margin-left: 100px;
     display: flex;
@@ -67,8 +83,11 @@ nav:hover::after {
   background-color: var(--primary-transp);    
     & ul {
       width: 100%;
+<<<<<<< HEAD
       /* width: calc(100% - 100px); */
       /* margin: 0 -110px 0 0; */
+=======
+>>>>>>> 26f658c (clean up css comments)
       display: flex;
       gap: 1rem;
       justify-content: space-evenly;
