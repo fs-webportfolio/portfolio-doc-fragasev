@@ -159,14 +159,11 @@ search {
 /* ANCHOR  Navi-Suchfeld */
 nav .navi-container form {
     display: flex;
-    /* width: min(15vw, 500px); */
-    flex-basis: 20;
-      flex-grow: 0;
-    flex-shrink: 1;    
+    flex: 1;
 }
 input[type="search"] {
-  width: 100%;
-  min-width: 150px;
+  width: min(150px, 100%);
+  /* analog max-width: 150px; */
   padding: 10px;
 	border: 1px solid var(--neutral-400);
   border-style: solid none inset none;    
@@ -179,12 +176,12 @@ input, button {
     background-color 0.25s ease;
 }
 /* Fokuszustand weich anpassen */
-input:focus, button:not[burger-btn]:focus {
+input:focus, button:not(.burger-btn):focus {
   outline: 2px solid var(--accent-2);
   outline-offset: 1px;
 	box-shadow: 0 0 6px rgba(0, 119, 204, 0.6); /* weiche Aura */
 }
-button:not[burger-btn]:active {
+button:not(.burger-btn):active {
   outline: 1px solid var(--accent-7);
   outline-offset: 2px;
 	box-shadow: 0 0 6px rgba(0, 119, 204, 0.6); /* weiche Aura */
@@ -199,7 +196,7 @@ button:not[burger-btn]:active {
   border-style: solid solid solid none;  
 }
 /* wenn Lupe innerhalb des Suchfeldes gewünscht */
-/* label::before {
+ /* label::before {
     content: "";
     display: block;
     background-image: url("../img/logo_btn_icon/search-icon.svg");
@@ -223,9 +220,7 @@ header{
     position: relative;
     z-index: 0;
     top: 0;
-    /* top: -140px; */
     padding-top: 40px;
-    /* margin-bottom: -140px; */
     width: 100%;
     height: 100vh;
     background-image: url("../img/praxis-team/nahaufnahme-eines-tierarztes-der-sich-um-den-hund-kummert 2.jpg");
@@ -262,7 +257,6 @@ header{
     }
   }
 }  
-/* /* Verwendung eines keyframe, denn CSS erlaubt immer nur ein transform pro Selektor – das zweite transform überschreibt das erste, also muss man das erste wiederholen! */ 
 
 @keyframes headlineup {
   0% {
@@ -370,13 +364,16 @@ figure {
 
 .praxis-info {
   & figure {
-        /* border: 1px solid blueviolet; */
-      max-width: 50%;
-      flex: 1;
-      height: auto;
-      border-radius: 12px;
-      overflow: hidden;  
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Ein leichter Schatten hebt die Card modern ab */
+      /* border: 1px solid blueviolet; */
+    flex: 1;
+    aspect-ratio: 20 / 10;
+    border-radius: 12px;
+    overflow: hidden;  
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      & img {
+        display: inline-block;
+        object-position: top;
+      }
   }
   & .divtext {
       /* border: 1px solid blueviolet; */
@@ -587,16 +584,6 @@ section.praxis-leistungen {
       }
     }
   } 
-  & .box-50-50 {
-    flex-direction: column;
-      & .divtext > .inner {
-        align-items: flex-start;
-        & a.btn {
-          margin: auto;
-        }
-      }
-    } 
-
   .praxis-leistungen {
       & .content > p {
         flex: 1 1 250px;
@@ -611,7 +598,7 @@ section.praxis-leistungen {
     }     
 }
 
-@media screen and (max-width:980px) {
+@media screen and (max-width:984px) {
   .navi-container {
     div:first-of-type {
       align-items: center;
@@ -648,8 +635,17 @@ section.praxis-leistungen {
   header .layer {
     width: calc(100% - 10vw);
   }
+    .box-50-50 {
+    flex-direction: column;
+      & .divtext > .inner {
+        align-items: flex-start;
+        & a.btn {
+          margin: auto;
+        }
+      }
+    } 
   .praxis-info > .content .divtext{
-    padding-bottom: var(--spacing-xsm);
+    padding-top: var(--spacing-xsm);
   }
 
   .praxis-leistungen {
