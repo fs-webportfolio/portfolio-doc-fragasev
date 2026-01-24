@@ -763,7 +763,7 @@ section.praxis-leistungen {
     }     
 }
 
-@media screen and (max-width:860px) {
+@media screen and (max-width:980px) {
   .navi-container {
     div:first-of-type {
       align-items: center;
