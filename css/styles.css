@@ -417,7 +417,7 @@ figure {
   } 
   & figure {
       display: flex;
-      flex-direction: column; /* Bild und Text untereinander, damit keine Überlappung */    
+      flex-direction: column;   
       flex: 30%;
       max-width: 280px;
       /* gleiche figure-Größe durch feste height im img! */
