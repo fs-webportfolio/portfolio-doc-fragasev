@@ -1,13 +1,9 @@
 
 /*  ANCHOR - Nav */
-<<<<<<< HEAD
-/* nav muss außerhalb von header, wenn sticky! header dann per top:0 und margin-top:-minus-wert, um den nachfolgenden content nachzuschieben */
-=======
 /* sticky nav mit fester Höhe! 
 nav als islnad durch padding-top des header */
 
 /*  auskommentierte borders nur für Kontrollzwecke */
->>>>>>> 26f658c (clean up css comments)
  nav {
    /* border: 1px solid burlywood; */
   width: 100%;
@@ -72,19 +68,9 @@ nav:hover::after {
   background-color: var(--primary-transp);    
     & ul {
       width: 100%;
-<<<<<<< HEAD
-      /* width: calc(100% - 100px); */
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      & li:first-child {
-        padding-left: 1rem;
-      }
-=======
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
->>>>>>> 26f658c (clean up css comments)
       & li {
         padding: 4px;  
         position: relative;
@@ -235,16 +221,6 @@ button:not[burger-btn]:active {
 
 header{
     position: relative;
-<<<<<<< HEAD
-    top: 0;
-    /* top: -140px; */
-    z-index: 0;
-    width: 100%;
-    /* height: calc(100vh - 60px); */
-    height: 100vh;
-    /* margin-bottom: -140px; */
-    padding-top: 40px;
-=======
     z-index: 0;
     top: 0;
     /* top: -140px; */
@@ -252,7 +228,6 @@ header{
     /* margin-bottom: -140px; */
     width: 100%;
     height: 100vh;
->>>>>>> 26f658c (clean up css comments)
     background-image: url("../img/praxis-team/nahaufnahme-eines-tierarztes-der-sich-um-den-hund-kummert 2.jpg");
     background-attachment: fixed;
     background-size: cover;
@@ -287,11 +262,7 @@ header{
     }
   }
 }  
-<<<<<<< HEAD
-/* /* CSS erlaubt immer nur ein transform pro Selektor – das zweite transform überschreibt das erste, also muss man das erste wiederholen! */ 
-=======
 /* /* Verwendung eines keyframe, denn CSS erlaubt immer nur ein transform pro Selektor – das zweite transform überschreibt das erste, also muss man das erste wiederholen! */ 
->>>>>>> 26f658c (clean up css comments)
 
 @keyframes headlineup {
   0% {
@@ -379,25 +350,6 @@ section {
       margin: auto;
     }
 }
-<<<<<<< HEAD
-  
-.praxis-info {
-  .divimg{
-        /* border: 1px solid blueviolet; */
-      flex: 1;
-      & img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-      }
-    } 
-  & figure {
-        /* border: 1px solid blueviolet; */
-    /* max-width: 50%; */ /* anderer Platzbedarf -> nicht gut! */
-=======
 
 figure {
   margin: 0;
@@ -420,7 +372,6 @@ figure {
   & figure {
         /* border: 1px solid blueviolet; */
       max-width: 50%;
->>>>>>> 26f658c (clean up css comments)
       flex: 1;
       height: auto;
       border-radius: 12px;
@@ -435,11 +386,7 @@ figure {
     align-content: center;
     justify-content: center; /* position button mittig bei display:flex */
     /* Achtung: kein padding direkt in die 50%-box, 
-<<<<<<< HEAD
-    da es zu den 505 hinzugerechnet wird und dann ein 50-50%-Verhältnis zweier divs nicht mehr stimmt. 
-=======
     da es zu den 50% hinzugerechnet wird und dann ein 50-50%-Verhältnis zweier divs nicht mehr stimmt. 
->>>>>>> 26f658c (clean up css comments)
     Statt dessen inner-div für Text oder Text selbst mit padding-l-r !! */
     & > .inner{
         /* border: 1px solid blueviolet; */
@@ -471,31 +418,16 @@ figure {
   & figure {
       display: flex;
       flex-direction: column; /* Bild und Text untereinander, damit keine Überlappung */    
-<<<<<<< HEAD
-      /* flex-basis: 40%; */
-=======
->>>>>>> 26f658c (clean up css comments)
       flex: 30%;
       max-width: 280px;
       /* gleiche figure-Größe durch feste height im img! */
         background-color: var(--primary-light);
-<<<<<<< HEAD
-      /* Damit die Ecken der Card unten auch rund sind, falls gewünscht */
-      border-radius: 12px;
-      overflow: hidden;  
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Ein leichter Schatten hebt die Card modern ab */
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;  
-    &:hover {
-    /* 2. Die eigentliche Animation */
-    transform: translateY(-10px); /* 10px nach oben */
-=======
       border-radius: 12px;
       overflow: hidden;  
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;  
     &:hover {
     transform: translateY(-10px);
->>>>>>> 26f658c (clean up css comments)
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Schatten wird weicher beim Abheben */
   }
     & figcaption {
@@ -517,69 +449,6 @@ figure {
   }
 }  
 
-<<<<<<< HEAD
-
-.praxis-team__ {
-  background-color: var(--neutral-100);
-  & .team {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-    justify-content: center;
-  } 
-  & figure {
-    /* flex: 1 1 250px; 
-    max-width: 33%;  */
-    /* Verhindert, dass ein einzelnes Bild in einer neuen Reihe riesig wird */
-  
-    flex: 0 0 30%; 
-    max-width: 40%;
-  /* Exakt 30% Breite, kein Wachsen, kein Schrumpfen */
-    display: flex;
-    flex-direction: column; /* Bild und Text untereinander */
-    margin: 0; /* Browser-Standardabstände entfernen */
-    background-color: var(--primary-light); /* Hintergrund für die ganze Karte */ 
-    & img {
-      display: block;
-      width: 100%;
-      height: 250px; /* Feste Höhe für ein einheitliches Raster */
-      object-fit: cover;
-    }
-
-    & figcaption {
-      padding: 10px; /* Etwas Platz für den Text */
-      font-size: 1rem;
-      font-weight: bold;
-      color: var(--neutral-900);
-      text-align: center;
-      /* Kein height: 100% nötig, es nimmt sich den Platz, den es braucht */
-    }
-  }
-}
-
-/* Hallo! Das Problem, das du beschreibst, ist ein klassischer CSS-Stolperstein. 
-Dass die figcaption verdeckt wird, liegt fast immer an der Art und Weise, 
-wie die Bilder (img) innerhalb der Flex-Elemente dimensioniert sind.
-
-Warum passiert das? Wenn du dem Bild height: 100% gibst, versucht es, die gesamte Höhe des Elternelements (figure) einzunehmen. Da die figure durch Flexbox ihre Höhe oft nach dem Inhalt richtet, entsteht ein Teufelskreis: Das Bild dehnt die figure aus, und die figcaption wird entweder nach unten aus dem sichtbaren Bereich geschoben oder vom Bild überlagert, wenn die figure eine feste oder begrenzte Höhe hat.
-
-Meistens "rutscht" das Bild über die Beschriftung, weil height: 100% das Bild zwingt, 
-den Platz zu beanspruchen, den eigentlich die figcaption bräuchte.
-
-Was wurde geändert?
-
-    display: flex + flex-direction: column für figure: Das sorgt dafür, dass die figcaption immer exakt unter dem Bild steht, egal wie hoch das Bild ist.
-
-    height: 250px (oder ein anderer Wert) für img: Damit dein Team-Raster ordentlich aussieht, sollten alle Bilder die gleiche Höhe haben. object-fit: cover sorgt dafür, dass die Köpfe nicht verzerrt werden.
-
-    gap im Team-Container: Anstatt nur 30% zu nutzen, hilft ein gap, damit die Bilder nicht aneinanderkleben.
-
-    flex: 0 0 30%: Das ist stabiler als nur 30%, da es verhindert, dass die Boxen bei viel Text unkontrolliert wachsen.
-
-Ein kleiner Tipp am Rande: Falls du möchtest, dass alle Team-Karten in einer Reihe exakt gleich hoch sind (auch wenn ein Name mal zwei Zeilen braucht), ist die Flex-Lösung für die figure ideal, da sich die figcaption dann automatisch anpasst. */
-
-=======
->>>>>>> 26f658c (clean up css comments)
 section.praxis-leistungen {
   & .content {
     justify-content: center;
@@ -599,13 +468,8 @@ section.praxis-leistungen {
     border-radius: var(--border-radius-md);
   }
   i {
-<<<<<<< HEAD
-     /* Achtung: favicon sitzt nicht mittig im eigenen container! */
-     /* fav sitzt nicht mittig auf schrift-linie, anpassen mit margin-top */
-=======
      /* Achtung: favicon sitzt nicht mittig im eigenen container!
      und fav sitzt nicht mittig auf schrift-linie -> anpassen mit margin-top */
->>>>>>> 26f658c (clean up css comments)
           /* border: 1px solid red; */
     display: inline-flex;
     align-self: center;
@@ -667,11 +531,6 @@ section.praxis-leistungen {
  footer{
   width: 100%;
   height: auto;
-<<<<<<< HEAD
-  /* position: fixed; */
-  /* bottom: 0; */
-=======
->>>>>>> 26f658c (clean up css comments)
   padding-block: 1rem;
   padding-left: 5vw;
   padding-right: 5vw;
@@ -687,19 +546,11 @@ section.praxis-leistungen {
 
 .btn-scroll-top{
   /* position: fixed; */
-<<<<<<< HEAD
-  display: block;
-  width: 40px;
-  height: 40px;
-  /* bottom: 30px;
-  right: 50px; */
-=======
   /* bottom: 30px;
   right: 50px; */
   display: block;
   width: 40px;
   height: 40px;
->>>>>>> 26f658c (clean up css comments)
   border: 3px solid var(--primary);
   border-radius: 50%;
   /* border-style: groove; */
@@ -717,10 +568,7 @@ section.praxis-leistungen {
 /* ANCHOR Responsive */
 
 @media screen and (max-width:1225px) {
-<<<<<<< HEAD
-=======
   /* falls form label::before mit Lupe verwendet wird: */
->>>>>>> 26f658c (clean up css comments)
   /* form label::before{
     display: none; 
   } */
@@ -822,11 +670,6 @@ section.praxis-leistungen {
     .praxis-leistungen {
     & .content {
       display: block;
-<<<<<<< HEAD
-      /* flex-direction: column;
-      align-content: center; */
-=======
->>>>>>> 26f658c (clean up css comments)
     }
     & .content > p {
       margin: var(--spacing-xsm) auto;
@@ -853,33 +696,13 @@ section.praxis-leistungen {
   nav .navi-container form {
     display: none;
   }
-<<<<<<< HEAD
-  header .div-buttons-header-bottom {
-    /* justify-content: space-between; */
-    gap: 1rem;
-    & .btn {
-      flex-basis: 40%;
-    }
-    & a:last-child {
-      /* flex-basis: 100%; */
-      /* Zentriert den Button selbst, falls er keine 100% Breite hat */
-      margin: 0 auto;
-    }  
-  }
-=======
->>>>>>> 26f658c (clean up css comments)
 }
 
 @media screen and (max-width:465px) {
   header .div-buttons-header-bottom {
-<<<<<<< HEAD
-    justify-content: center;
-    bottom: 20px;
-=======
     gap: 1rem;
     justify-content: center;
     bottom: 80px;
->>>>>>> 26f658c (clean up css comments)
     & .btn {
       flex-basis: 40%;
       font-size: 1rem;
@@ -934,14 +757,7 @@ section.praxis-leistungen {
   }
 }
 
-<<<<<<< HEAD
-/* Ein kleiner "Pro-Tipp" zur Barrierefreiheit
-
-Manche Menschen reagieren empfindlich auf Animationen (Motion Sickness). 
-In modernen CSS-Projekten fügt man oft diesen kleinen Block am Ende hinzu, um Animationen für diese Nutzer abzuschalten: */
-=======
 /* Für Barrierefreiheit: */
->>>>>>> 26f658c (clean up css comments)
 @media (prefers-reduced-motion: reduce) {
   & figure {
     transition: none;
